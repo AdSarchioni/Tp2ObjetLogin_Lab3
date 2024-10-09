@@ -23,11 +23,10 @@ import java.io.ObjectInputStream;
 
 public class MainActivityViewModel extends AndroidViewModel {
     private Context context;
-    private ApiClient apiClient;
     public MainActivityViewModel(@NonNull Application application) {
         super(application);
         context = application.getApplicationContext();
-        apiClient = new ApiClient();
+
     }
 
     public void mostrarFormulario() {
@@ -40,7 +39,7 @@ public class MainActivityViewModel extends AndroidViewModel {
 
         if (!usuario.isEmpty() && !contrasena.isEmpty()){
 
-       Usuario usu =  apiClient.login(context,usuario,contrasena);
+       Usuario usu =  ApiClient.login(context,usuario,contrasena);
 
 
         if (usu != null) {
